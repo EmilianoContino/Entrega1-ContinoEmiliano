@@ -1,2 +1,21 @@
-{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% extends 'app1/base.html' %}
+
+{% block title_pagina %}
+<title>Crear Chef</title>
+{% endblock title_pagina %}
+
+
+{% block mi_contenido_crear %}
+<p>
+<p>
+<form action={% url 'crear_chef' %} method="POST">
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+    <button>Crear</button>
+</form>
+</p>
+</p>
+{% endblock mi_contenido_crear %}
 

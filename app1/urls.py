@@ -5,8 +5,10 @@ from app1 import views
 
 urlpatterns = [
     path('', views.index, name='inicio'),
-    # path("hola/", views.hola, name='hola'),
-    # path("mi-template/", views.mi_template),
-    # path('crear-familiar/<str:nombre>/<str:apellido>/<str:edad>/', views.crear_familiar),
-    # path('ver-familiares/', views.ver_familiares, name='ver_familiares'),
+    
+    path('chefs/', views.ListaChef.as_view(), name='ver_chefs'),
+    path('chefs/crear/', views.CrearChef.as_view(), name='crear_chef'),
+    path('chefs/editar/<int:pk>', views.EditarChef.as_view(), name='editar_chef'),
+    path('chefs/eliminar/<int:pk>', views.EliminarChef.as_view(), name='eliminar_chef')
+    
 ]

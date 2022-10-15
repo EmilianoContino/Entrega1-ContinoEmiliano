@@ -1,12 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    prueba
-</body>
-</html>
+    <head>
+        {% load static %}
+        <meta charset="utf-6" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Recetas del Chef</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href={% static "css/styles.css" %} rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand" href="http://127.0.0.1:8000/">Inicio</a>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url 'ver_chefs'%}> Ver Chefs</a></li>
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url 'crear_chef'%}> Crear Chefs</a></li>
+                        </ul>
+                    </div>
+            </div>
+        </nav>
+
+        </header>
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Avatar Image-->
+                    <div>
+                        <div>
+                            <p>
+                                <img class="masthead-avatar mb-5" src="static/assets/img/logo_master_chef_chico_-50.jpg" alt="..." /></p>
+                                <div>
+
+                        </div>    
+                        
+                        </div>
+                    </div>             
+                <!-- Masthead Heading-->
+                <h1 class="masthead-heading text-uppercase mb-0">CONTANOS TU COMIDA FAVORITA</h1>
+                <!-- Icon Divider-->
+                <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i> 
+                        <i class="fas fa-star "></i>
+                        <i class="fas fa-star "></i>
+                    </div>
+                    <div class="divider-custom-line"></div>
+                </div>
+            <!-- Masthead Subheading-->
+            </div>
+        </header>
+
+        <div class="container">
+        {% block mi_contenido_crear %}
+
+        {% endblock mi_contenido_crear%}
+        </div>
+        <div class="container">
+        {% block ver_chefs %}
+
+        {% endblock ver_chefs %}
+        </div>
+        <p>
+            
+            <!-- Footer-->
+            <footer class="footer text-center">
+                <!-- Footer About Text-->
+                <div class="col-lg-50">
+                    <p>
+                    </p>
+                    <h6 class="text-uppercase mb-2">About</h6>
+                    
+                    <p class="lead mb-0">
+                        Contino Emiliano
+                        <a href="http://127.0.0.1:8000/">
+                        <p>Inicio</a></p> 
+                        
+                    </p>
+                </div>
+        </p>          
+        </footer>
+    </body>
+</html>        

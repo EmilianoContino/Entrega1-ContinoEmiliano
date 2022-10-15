@@ -1,0 +1,23 @@
+{% extends 'app1/base.html' %}
+
+{% block ver_chefs %}
+<a class="navbar-brand" href={% url 'crear_chef' %}>Crear Chef</a>
+<p>Listado de Chefs:</p>
+
+<p>
+    {% if object_list %}
+
+        {% for chef in object_list %}
+            <li>
+                {{chef}}
+                <a href={% url 'editar_chef' chef.id %}>Editar</a>
+                <a href={% url 'eliminar_chef' chef.id %}>Eliminar</a>
+            </li>
+        {% endfor %}
+
+    {% else %}
+        <p>No se encontraron resultados.</p>
+    {% endif %}
+
+</p>
+{% endblock ver_chefs %}
