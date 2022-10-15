@@ -1,0 +1,17 @@
+{% extends 'app1/base.html' %}
+
+{% block title_pagina %}
+<title>Eliminar Chef</title>
+{% endblock title_pagina %}
+
+
+{% block ver_chefs %}
+<form action={% url 'eliminar_chef' chef.id %} method="POST">
+    {% csrf_token %}
+    <p>
+       <h6> Desea eliminar el chef:  {{chef.nombre}} {{chef.apellido}} ? </h6>
+    </p>
+    <button>Confirmar</button>
+</form>
+{% endblock ver_chefs %}
+

@@ -1,0 +1,16 @@
+{% extends 'app1/base.html' %}
+
+{% block title_pagina %}
+<title>Editar los Chef</title>
+{% endblock title_pagina %}
+
+
+{% block ver_chefs %}
+<form action={% url 'editar_chef' chef.id %} method="POST">
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+    <button>Editar</button>
+</form>
+{% endblock ver_chefs %}
