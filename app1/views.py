@@ -12,7 +12,7 @@ def index(request):
 
 def ver_chefs(request):
     
-    nombre = request.GET.get('nombre', None)
+    nombre = request.GET.get('chefs', None)
     
     if nombre:
         chefs = Chef.objects.filter(nombre__icontains=nombre)
@@ -47,18 +47,6 @@ class EliminarChef(DeleteView):
     success_url = '/app1/chefs/'
     template_name = 'app1/eliminar_chef.html'
     
-# def buscador(request):
-#     return render(request, "app1/buscador.html")
 
-# def buscar(request):
-#     if request.GET["nombre"]:
-#         nombre= request.GET['nombre']
-#         ver_chefs = Chef.objects.filter(nombre__icontains=nombre)
-#         return render (request, "app1/buscador.html", {"nombre": nombre, "ver_chefs": ver_chefs})
-    
-#     else:   
-#         respuesta= "No hay datos"  
-    
-#     return HttpResponse(respuesta)
 
 

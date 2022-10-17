@@ -7,6 +7,6 @@ class ChefFormulario (forms.Form):
     receta_preferida = forms.CharField(max_length=30)
 
 class BusquedaChefFormulario (forms.Form):
-    nombre = forms.CharField(max_length=30)
-    apellido = forms.CharField(max_length=30)
+    nombre = forms.CharField(max_length=30, required=False)
+    
     

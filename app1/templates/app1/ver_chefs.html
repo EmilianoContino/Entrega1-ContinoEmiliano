@@ -2,33 +2,31 @@
 
 {% block ver_chefs %}
 <button type="submit"><a class="navbar-brand" href={% url 'crear_chef' %}>Crear Chef</a></button>
+<button type="submit"><a class="navbar-brand" href={% url 'ver_chefs' %}>Ver Chef´s</a></button>
 <p> <h2> Listado de Chefs:</p></h2>
 
-    <div> 
-        <form action={% url 'ver_chefs' %} method="GET">
-          
-            <input type="texto" name="chefs" id = "chefs">
-            <input type="submit" value="Buscar">
-        
-        </form>                
-
-    </div>    
+{% if chefs %}
+    {% for chef in chefs %}
+        <p><li> Para {{chef.nombre}} {{chef.apellido}} su receta preferida es: {{chef.receta_preferida}}
+                <a href={% url 'editar_chef' chef.id %}>Editar</a>                    
+                <a href={% url 'eliminar_chef' chef.id %}>Eliminar</a>     
+        </p></li>
+    
+    
+    {% endfor %}
+{%else %}
+    <p>No se encontraron resultados. </p>
+{% endif %}
 
     <p>
-    {% if object_list %}
+    </p>
 
-        {% for chef in object_list %}
-            </h2><li>
-                    {{chef}}
-                    <a href={% url 'editar_chef' chef.id %}>Editar</a>                    
-                    <a href={% url 'eliminar_chef' chef.id %}>Eliminar</a>              
-            </h2></li>
-        {% endfor %}
-
-    {% else %}
-        <p>No se encontraron resultados.</p>
-    {% endif %} 
-   
+<div> 
+    <form action={% url 'ver_chefs' %} method="GET">
+         <input type="texto" name="chefs" id = "chefs">
+         <input type="submit" value="Buscar"> 
+    
+    </form>                
             <p>
 
             </p>
