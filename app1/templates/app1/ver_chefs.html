@@ -7,7 +7,7 @@
 
 {% if chefs %}
     {% for chef in chefs %}
-        <p><li> Para {{chef.nombre}} {{chef.apellido}} su receta preferida es: {{chef.receta_preferida}}
+        <p><li> Para {{chef.nombre}} {{chef.apellido}} su receta preferida es : {{chef.receta_preferida}}
                 <a href={% url 'editar_chef' chef.id %}>Editar</a>                    
                 <a href={% url 'eliminar_chef' chef.id %}>Eliminar</a>     
         </p></li>
@@ -23,7 +23,7 @@
 
 <div> 
     <form action={% url 'ver_chefs' %} method="GET">
-         <input type="texto" name="chefs" id = "chefs">
+         <input type="texto" name="chefs" id = "chef">
          <input type="submit" value="Buscar"> 
     
     </form>                

@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from app1.forms import BusquedaChefFormulario, ChefFormulario
+from app1.forms import BusquedaChefFormulario
 from app1.models import Chef
 
 from django.views.generic import ListView
