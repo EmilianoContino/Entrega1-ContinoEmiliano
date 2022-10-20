@@ -1,0 +1,32 @@
+{% extends 'app1/base.html' %}
+
+
+{% block mi_contenido %}
+<h1>Informacion del usuario: </h1>
+
+<p>
+    <li>
+        {% if  %}
+        <img src={{request.user.extensionusuario.avatar.url}} alt=""> width=“80" height=“80"
+
+        {% else %}
+            Imagen no subida.
+        {% endif %}
+        
+    </li>
+</p>
+
+<p> 
+    <li>Nombre: {{request.user.first_name}}</li>
+    <li>Apellido: {{request.user.last_name}}</li>
+    <li>Email: {{request.user.email}}</li>
+</p>
+
+<p>
+<a href={%'editar_perfil'%}> Editar Datos</a>
+</p>
+
+<p>
+    <a href={%'cambiar_contraseña'%}> Cambiar Contraseña</a>
+    </p>
+{% endblock mi_contenido %}
