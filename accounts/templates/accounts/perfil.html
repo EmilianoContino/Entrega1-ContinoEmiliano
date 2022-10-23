@@ -1,5 +1,8 @@
 {% extends 'app1/base.html' %}
 
+{% block title_pagina %}
+<title>Perfil </title>
+{% endblock title_pagina %}
 
 {% block mi_contenido %}
 <h1>Informacion del usuario: </h1>
@@ -7,7 +10,7 @@
 <p>
     <li>
         {% if  %}
-        <img src={{request.user.extensionusuario.avatar.url}} alt=""> width=“80" height=“80"
+        <img src={{request.user.extensionusuario.avatar.url}} alt=""> 
 
         {% else %}
             Imagen no subida.
@@ -23,10 +26,10 @@
 </p>
 
 <p>
-<a href={%'editar_perfil'%}> Editar Datos</a>
+    <a href={% url 'editar_perfil'%}> Editar Datos</a>
 </p>
 
 <p>
     <a href={%'cambiar_contraseña'%}> Cambiar Contraseña</a>
-    </p>
+</p>
 {% endblock mi_contenido %}

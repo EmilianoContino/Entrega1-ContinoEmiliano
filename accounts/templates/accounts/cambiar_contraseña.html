@@ -1,16 +1,16 @@
 {% extends 'app1/base.html' %}
 
 {% block title_pagina %}
-<title>Editar Perfil</title>
+<title>Cambiar Contraseña</title>
 {% endblock title_pagina %}
 
 
 {% block ver_chefs %}
-<form action={% url 'editar_perfil' chef.id %} method="POST" enctype='multipart_data'>
+<form action={% url 'cambiar_contraseña' chef.id %} method="POST" enctype='multipart_data'>
     {% csrf_token %}
     <table>
-        {{formulario}}
+        {{form}}
     </table>
-    <button>Editar</button>
+    <button>Cambiar</button>
 </form>
 {% endblock ver_chefs %}
