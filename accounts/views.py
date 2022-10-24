@@ -16,6 +16,7 @@ def mi_login(request):
         if formulario.is_valid():
             usuario = formulario.get_user()
             login(request, usuario)
+            extensionusuario, es_nuevo= ExtensionUsuario.objects.get_or_create(user=request.user)
             return redirect('inicio')
     else:
        formulario = AuthenticationForm() 
@@ -40,7 +41,7 @@ def registrar(request):
 
 @login_required
 def perfil(request):    
-    extensionusuario, es_nuevo= ExtensionUsuario.objects.get_or_create(user=request.user)
+    # extensionusuario, es_nuevo= ExtensionUsuario.objects.get_or_create(user=request.user)
     
     return render (request, 'accounts/perfil.html',{})
 
@@ -48,7 +49,6 @@ def perfil(request):
 def editar_perfil(request):
     
     user = request.user
-#     user.extensionusuario
     
     if request.method == 'POST':
         formulario = EditarPerfilFormulario(request.POST, request.FILES)
@@ -58,9 +58,9 @@ def editar_perfil(request):
             user.first_name = data_nueva ['first_name']
             user.last_name = data_nueva ['last_name']
             user.email = data_nueva ['email']
-#             user.extensionsusuario.avatar = data_nueva ['avatar']
+            user.extensionusuario.avatar = data_nueva ['avatar']
             
-#             user.extensionsusuario.save()            
+            user.extensionusuario.save()            
             user.save()
             return redirect('perfil')
             
@@ -69,11 +69,11 @@ def editar_perfil(request):
                                                     'first_name': user.first_name, 
                                                     'last_name': user.last_name,
                                                     'email': user.email,
-                                                    'avatar': user.avatar,
+                                                    'avatar': user.extensionusuario.avatar,
                                                     }
                                             )
     return render (request, 'accounts/editar_perfil.html',{'formulario': formulario})
 
 class CambiarContraseña(LoginRequiredMixin, PasswordChangeView):
     template_name = 'accounts/cambiar_contraseña.html'    
-    succes_url = '/acconts/perfil'    
+    succes_url = '/acconts/perfil/'    

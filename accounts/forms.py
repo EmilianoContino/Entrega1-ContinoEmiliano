@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 class MiFormularioDeCreacion(UserCreationForm):
 
-    email=forms.EmailField()
+    email=forms.CharField()
     password1= forms.CharField(label = "Contraseña", widget=forms.PasswordInput)
     password2= forms.CharField(label = "Repetir Contraseña", widget=forms.PasswordInput)
     
@@ -16,8 +16,8 @@ class MiFormularioDeCreacion(UserCreationForm):
         
         
 class EditarPerfilFormulario(forms.Form):
-    email=forms.EmailField()
+    email=forms.CharField()
     first_name= forms.CharField(label='Nombre')
     last_name = forms.CharField(label='Apellido')
-    
+    avatar = forms.ImageField(required=False)
     

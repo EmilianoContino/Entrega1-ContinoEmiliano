@@ -6,7 +6,7 @@
 
 
 {% block ver_chefs %}
-<form action={% url 'cambiar_contraseña' chef.id %} method="POST" enctype='multipart_data'>
+<form action={% url 'cambiar_contraseña' %} method="POST" >
     {% csrf_token %}
     <table>
         {{form}}

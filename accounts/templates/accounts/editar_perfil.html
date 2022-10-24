@@ -6,7 +6,7 @@
 
 
 {% block ver_chefs %}
-<form action={% url 'editar_perfil' chef.id %} method="POST" enctype='multipart_data'>
+<form action={% url 'editar_perfil' %} method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
         {{formulario}}

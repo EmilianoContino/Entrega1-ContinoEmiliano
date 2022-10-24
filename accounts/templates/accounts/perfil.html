@@ -4,25 +4,23 @@
 <title>Perfil </title>
 {% endblock title_pagina %}
 
-{% block mi_contenido %}
+{% block mi_contenido_perfil %}
 <h1>Informacion del usuario: </h1>
 
 <p>
-    <li>
-        {% if  %}
-        <img src={{request.user.extensionusuario.avatar.url}} alt=""> 
-
-        {% else %}
-            Imagen no subida.
-        {% endif %}
-        
-    </li>
+    
+    {% if request.user.extensionusuario.avatar  %}
+    <img src={{request.user.extensionusuario.avatar.url}} alt=""> 
+    {% else %}
+    Imagen no subida.
+    {% endif %}        
+    
 </p>
 
 <p> 
-    <li>Nombre: {{request.user.first_name}}</li>
-    <li>Apellido: {{request.user.last_name}}</li>
-    <li>Email: {{request.user.email}}</li>
+<li>Nombre: {{request.user.first_name}}</li>
+<li>Apellido: {{request.user.last_name}}</li>
+<li>Email: {{request.user.email}}</li>
 </p>
 
 <p>
@@ -30,6 +28,6 @@
 </p>
 
 <p>
-    <a href={%'cambiar_contraseña'%}> Cambiar Contraseña</a>
+    <a href={% url 'cambiar_contraseña'%}> Cambiar Contraseña</a>
 </p>
-{% endblock mi_contenido %}
+{% endblock mi_contenido_perfil %}
