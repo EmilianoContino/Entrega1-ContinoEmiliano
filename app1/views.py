@@ -50,6 +50,9 @@ class EliminarChef(LoginRequiredMixin, DeleteView):
     success_url = '/app1/chefs/'
     template_name = 'app1/eliminar_chef.html'
     
+    
+def about(request):
 
+    return render(request, "app1/about.html", {})
 
 

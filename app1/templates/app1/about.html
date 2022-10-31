@@ -1,0 +1,55 @@
+{%extends "app1/base.html"%}
+
+{%block title_pagina %}
+ Nosotros
+{%endblock title_pagina %}
+
+{% load static %}
+<p>
+
+</p>
+
+{%block mi_contenido_perfil%}
+
+BLOG CREADO PARA ...
+            <section class="py-5 bg-dark" >
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6 order-first order-lg-last"><img class="img-fluid rounded mb-5 mb-lg-0" src="{%static 'assets/img/coder3.jpg' %}" alt="..." /></div>
+                        <div class="col-lg-6">
+                            <h2 class="fw-bolder" style="color: white;">Proyecto Final</h2>
+                            <p class="lead fw-normal text-muted mb-0">Este proyecto se realizo para la entrega final del curso de Python desde Cero dictado por Coderhouse.
+                                </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Team members section-->
+            <section class="py-5 bg-light">
+                <div class="container px-5 my-2">
+                    <div class="text-center">
+                        <h2 class="fw-bolder">Nosotros</h2>
+                        <p class="lead fw-normal text-muted mb-5"><i>Proyecto Final - Comision 41765 </i></p>
+                    </div>
+                    <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+                        <div class="col mb-5 mb-5 mb-xl-0">
+                            
+                        </div>
+                        <div class="col mb-5 mb-5 mb-xl-0">
+                            <div class="text-center">
+                                <img class="img-fluid rounded-circle mb-4 px-4" src="{%static 'assets/img/emi.png' %}" alt="..." style="max-width: 200px; max-height: 200px;"/>
+                                <h5 class="fw-bolder">Contino Emiliano</h5>
+                                <div class="fst-italic text-muted">Cursando en CoderHouse Python </div>
+                                <div class="fst-italic text-muted">Buenos Aires, Argentina.</div>
+                            </div>
+                        </div>
+                        <div 
+                            
+                        </div>                        
+                    </div>
+                </div>
+            </section>
+        </main>      
+
+
+{%endblock mi_contenido_perfil %}
