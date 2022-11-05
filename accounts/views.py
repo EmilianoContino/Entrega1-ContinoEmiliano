@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm,UserCreationForm
 from django.contrib.auth import login
-from accounts.forms import MiFormularioDeCreacion, EditarPerfilFormulario
+from accounts.forms import MiFormularioDeCreacion, EditarPerfilFormulario, MiCambioContraseña
 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -57,25 +57,31 @@ def editar_perfil(request):
             data_nueva = formulario.cleaned_data
             user.first_name = data_nueva ['first_name']
             user.last_name = data_nueva ['last_name']
-            user.email = data_nueva ['email']
+            user.email = data_nueva ['email']           
             user.extensionusuario.avatar = data_nueva ['avatar']
-            
+            user.extensionusuario.descripcion = data_nueva ['descripcion']
+            user.extensionusuario.link = data_nueva ['link']
+                                    
             user.extensionusuario.save()            
             user.save()
             return redirect('perfil')
             
     else:
-        formulario = EditarPerfilFormulario( initial = {
-                                                    'first_name': user.first_name, 
-                                                    'last_name': user.last_name,
-                                                    'email': user.email,
-                                                    'avatar': user.extensionusuario.avatar,
-                                                    }
-                                            )
-    return render (request, 'accounts/editar_perfil.html',{'formulario': formulario})
+        formulario = EditarPerfilFormulario(
+            initial = {
+                'first_name': user.first_name, 
+                'last_name': user.last_name,
+                'email': user.email,                                                    
+                'avatar': user.extensionusuario.avatar,                
+                'descripcion': user.extensionusuario.descripcion,    
+                'link': user.extensionusuario.link,                                                
+                        
+            }
+        )
+    return render (request, 'accounts/editar_perfil.html', {'formulario': formulario})
 
 class CambiarContraseña(LoginRequiredMixin, PasswordChangeView):
     template_name = 'accounts/cambiar_contraseña.html'    
     succes_url = '/acconts/perfil/'    
-    
+    form_class: MiCambioContraseña
     

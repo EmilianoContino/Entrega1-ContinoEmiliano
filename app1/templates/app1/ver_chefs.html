@@ -5,9 +5,11 @@
 <button type="submit"><a class="navbar-brand" href={% url 'ver_chefs' %}>Ver Chef´s</a></button>
 <p> <h2> Listado de Chefs:</p></h2>
 
+
 {% if chefs %}
     {% for chef in chefs %}
-        <p><li> Para {{chef.nombre}} {{chef.apellido}} su receta preferida es : {{chef.receta_preferida}}
+        {% comment %} <p><li> Para {{chef.nombre}} {{chef.apellido}} su receta preferida es : {{chef.receta_preferida}} {% endcomment %}
+                <a href={% url 'ver_chef' chef.id %}>{{chef}}</a>
                 <a href={% url 'editar_chef' chef.id %}>Editar</a>                    
                 <a href={% url 'eliminar_chef' chef.id %}>Eliminar</a>     
         </p></li>

@@ -11,6 +11,7 @@ urlpatterns = [
     path('chefs/crear/', views.CrearChef.as_view(), name='crear_chef'),
     path('chefs/editar/<int:pk>', views.EditarChef.as_view(), name='editar_chef'),
     path('chefs/eliminar/<int:pk>', views.EliminarChef.as_view(), name='eliminar_chef'),
+    path('chefs/Ver/<int:pk>', views.VerChef.as_view(), name='ver_chef'),
     path('about/', views.about, name='about'),
     
 ]

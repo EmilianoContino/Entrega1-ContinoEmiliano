@@ -10,7 +10,7 @@
 <p>
     
     {% if request.user.extensionusuario.avatar  %}
-    <img src={{request.user.extensionusuario.avatar.url}} alt=""> 
+    <img src={{request.user.extensionusuario.avatar.url}} alt=width='100' height='120'> 
     {% else %}
     Imagen no subida.
     {% endif %}        
@@ -18,10 +18,28 @@
 </p>
 
 <p> 
-<li>Nombre: {{request.user.first_name}}</li>
-<li>Apellido: {{request.user.last_name}}</li>
-<li>Email: {{request.user.email}}</li>
+<li><strong>Nombre: </strong> {{request.user.first_name}}</li>
+<li><strong>Apellido: </strong> {{request.user.last_name}}</li>
+<li><strong>Email: </strong>{{request.user.email}}</li>
+
+
+    {% if request.user.extensionusuario.link %}
+    <li><strong>Link Pagina:</strong> </li><a href={{request.user.extensionusuario.link}}> {{request.user.extensionusuario.link}}</a>
+    {% else %}
+    <li><strong>Link Pagina:</strong></li> 
+    {% endif %}
+<p>
+    
 </p>
+    {% if request.user.extensionusuario.descripcion  %}
+    <li><strong>Contanos tu experiencia: </strong></li> {{request.user.extensionusuario.descripcion}}
+    {% else %} 
+    <li><strong>Contanos tu experiencia: </strong></li> 
+    {% endif %}
+
+</p>
+
+
 
 <p>
     <a href={% url 'editar_perfil'%}> Editar Datos</a>

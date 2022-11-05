@@ -26,17 +26,17 @@
                
                 <div class="collapse navbar-collapse" id="navbarResponsive"> 
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url 'ver_chefs' %}><h5>Ver Chefs</h5></a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url 'crear_chef' %}><h5>Crear Chef</h5></a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url 'ver_chefs' %}><h6>Ver Chefs</h6></a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url 'crear_chef' %}><h6>Crear Chef</h6></a></li>
                          {% if request.user.is_authenticated  %}
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url 'perfil' %} > {{ request.user.username }}</a></li>                             
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url 'logout' %}> <h5>Cerrar Sesion</h5></a></li>                            
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url 'perfil' %}> <h6>{{ request.user.username }}</h6></a></li>                             
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url 'logout' %}> <h6>Cerrar Sesion</h6></a></li>                            
                             {% else %}
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url 'login' %}> <h5>Iniciar Sesion</h5></a></li>
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url 'registrar' %}> <h5>Registrarse</h5></a></li>
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url 'login' %}> <h6>Iniciar Sesion</h6></a></li>
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url 'registrar' %}> <h6>Registrarse</h6></a></li>
                             {% endif %}
                                               
-                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url 'about' %}>Acerca de Nosotros</a></li>
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url 'about' %}><h6>Acerca de Mi</h6></a></li>
                     </ul>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading text-uppercase mb-0">CONTANOS TU PLATILLO FAVORITO</h1>
                 <!-- Icon Divider-->
-                <div class="divider-custom divider-light">
+                <div class="divider-custom ">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star "></i>
                          <i class="fas fa-star "></i>
