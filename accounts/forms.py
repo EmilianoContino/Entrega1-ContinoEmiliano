@@ -22,6 +22,7 @@ class EditarPerfilFormulario(forms.Form):
     last_name = forms.CharField(label='Apellido')
     avatar = forms.ImageField(required=False)
     descripcion = forms.CharField(label='Contanos tu experiencia', widget=forms.Textarea, required=False)
+    link = forms.URLField(label='Link de mi Pagina', required=False)
     
     
     

@@ -1,0 +1,37 @@
+{% extends 'app1/base.html' %}
+
+{% block ver_chefs %}
+<button type="submit"><a class="navbar-brand" href={% url 'crear_chef' %}>Crear Chef</a></button>
+<button type="submit"><a class="navbar-brand" href={% url 'ver_chefs' %}>Ver Chef´s</a></button>
+<p> <h2> Listado de Chefs:</p></h2>
+
+
+{% if chefs %}
+    {% for chef in chefs %}
+        {% comment %} <p><li> Para {{chef.nombre}} {{chef.apellido}} su receta preferida es : {{chef.receta_preferida}} {% endcomment %}
+                <a href={% url 'ver_chef' chef.id %}>{{chef}}</a>
+                <a href={% url 'editar_chef' chef.id %}>Editar</a>                    
+                <a href={% url 'eliminar_chef' chef.id %}>Eliminar</a>     
+        </p></li>
+    
+    
+    {% endfor %}
+{%else %}
+    <p>No se encontraron resultados. </p>
+{% endif %}
+
+    <p>
+    </p>
+
+<div> 
+    <form action={% url 'ver_chefs' %} method="GET">
+         <input type="texto" name="chefs" id = "chef">
+         <input type="submit" value="Buscar"> 
+    
+    </form>                
+            <p>
+
+            </p>
+
+</p>
+{% endblock ver_chefs %}

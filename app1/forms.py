@@ -7,6 +7,7 @@ class ChefFormulario (forms.Form):
     edad = forms.IntegerField()
     receta_preferida = forms.CharField(max_length=30)
     descripcion = RichTextFormField (required=False)
+    imagen_receta = forms.ImageField(label = 'Imagen de tu Receta', required=False)
     # avatar = forms.ImageField(required=False)
 
 class BusquedaChefFormulario (forms.Form):

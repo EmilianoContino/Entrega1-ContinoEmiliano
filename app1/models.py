@@ -6,7 +6,9 @@ class Chef(models.Model):
     apellido = models.CharField(max_length=30)
     edad = models.IntegerField()
     receta_preferida = models.CharField(max_length=30)
-    descripcion = RichTextField (blank=True, null= True)
+    descripcion = RichTextField (blank=True, null=True)
+    imagen_receta = models.ImageField(upload_to = 'fotos', blank=True, null=True)
+    # fecha_creacion = models.DateField(auto_now = True )
     # avatar = models.ImageField(upload_to='avatares', null=True, blank=True)
     
     

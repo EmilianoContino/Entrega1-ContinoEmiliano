@@ -32,6 +32,19 @@ class ListaChef(ListView):
     model = Chef
     template_name = 'app1/ver_chefs.html'
     
+    # def get_queryset(self):
+    #     nombre = self.request.GET.get('nombre', '')
+    #     if nombre:
+    #         chefs = self.model.objects.filter(nombre__icontains=nombre)
+    #     else:
+    #         chefs = self.model.objects.all()
+    #     return chefs
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context["formulario"] = BusquedaChefFormulario()
+    #     return context
+    
     
     
     
@@ -39,14 +52,14 @@ class CrearChef(LoginRequiredMixin, CreateView):
     model = Chef
     success_url = '/app1/chefs/'
     template_name = 'app1/crear_chef.html'
-    fields = ['nombre', 'apellido', 'edad', 'receta_preferida', 'descripcion']
+    fields = ['nombre', 'apellido', 'edad', 'receta_preferida', 'descripcion', 'imagen_receta']
     
     
 class EditarChef(LoginRequiredMixin, UpdateView):
     model = Chef
     success_url = '/app1/chefs/'
     template_name = 'app1/editar_chef.html'
-    fields = ['nombre', 'apellido', 'edad', 'receta_preferida', 'descripcion']
+    fields = ['nombre', 'apellido', 'edad', 'receta_preferida', 'descripcion','imagen_receta']
     
     
 class EliminarChef(LoginRequiredMixin, DeleteView):

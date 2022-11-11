@@ -11,7 +11,18 @@
     <li>Edad: {{chef.edad}} </li>
     <li>Receta Preferida: {{chef.receta_preferida}} </li>
     <li>Descripcion de la Receta: {{chef.descripcion |safe}} </li>
-    {% comment %} <li>imagen: {{chef.avatar }} </li> {% endcomment %}
+    <li>Foto de la Receta: {{chef.imagen_receta |safe}} </li>
+
+  {% comment %} <li><p><strong>Fecha creación:</strong> {{chef.fecha_creacion}}</p></li> {% endcomment %}
+    
+
+    {% if chef.imagen_receta %}
+    <img src={{chef.imagen_receta.url}} alt="" width = '500' > 
+    {% else %}
+    Imagen no subida.
+    {% endif %} 
+    
+    <li>imagen: {{chef.imagen_receta }} </li>
     
 </p>
 
