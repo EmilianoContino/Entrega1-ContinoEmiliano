@@ -8,7 +8,7 @@
 {% block mi_contenido_crear %}
 <p>
 <p>
-<form action={% url 'crear_chef' %} method="POST">
+<form action={% url 'crear_chef' %} method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
         {{form.media}}

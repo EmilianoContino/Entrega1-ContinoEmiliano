@@ -6,12 +6,12 @@
 
 
 {% block ver_chefs %}
-<form action={% url 'editar_chef' chef.id %} method="POST">
+<form action={% url 'editar_chef' chef.id %} method="POST" enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
         {{form.media}}
         {{form}}
     </table>
-    <button>Editar</button>
+    <button>Guardar</button>
 </form>
 {% endblock ver_chefs %}

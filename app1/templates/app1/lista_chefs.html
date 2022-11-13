@@ -1,4 +1,4 @@
-{% extends 'app1/base.html' %}
+{% comment %} {% extends 'app1/base.html' %}
 
 {% block ver_chefs %}
 <button type="submit"><a class="navbar-brand" href={% url 'crear_chef' %}>Crear Chef</a></button>
@@ -6,10 +6,11 @@
 <p> <h2> Listado de Chefs:</p></h2>
 
 
-{% if chefs %}
-    {% for chef in chefs %}
-        {% comment %} <p><li> Para {{chef.nombre}} {{chef.apellido}} su receta preferida es : {{chef.receta_preferida}} {% endcomment %}
-                <a href={% url 'ver_chef' chef.id %}>{{chef}}</a>
+
+{% if object_list %}
+    {% for chef in object_list %}
+      
+                <a href={% url 'ver_chef' chef.id %}>Titulo:{{chef.nombre}} - Autor:{{request.user.username}}</a>
                 <a href={% url 'editar_chef' chef.id %}>Editar</a>                    
                 <a href={% url 'eliminar_chef' chef.id %}>Eliminar</a>     
         </p></li>
@@ -20,18 +21,18 @@
     <p>No se encontraron resultados. </p>
 {% endif %}
 
-    <p>
-    </p>
-
-<div> 
-    <form action={% url 'ver_chefs' %} method="GET">
-         <input type="texto" name="chefs" id = "chef">
-         <input type="submit" value="Buscar"> 
-    
-    </form>                
-            <p>
-
-            </p>
+<p>
 
 </p>
+
+    <form action={% url 'ver_chefs' %} method="GET">
+    {{formulario}}
+    <button>Buscar</button>
+    </form>
+</p>
 {% endblock ver_chefs %}
+
+
+
+
+<a href={% url 'lista_chefs' chef.id %}>{{chef}}</a> {% endcomment %}

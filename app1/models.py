@@ -8,11 +8,11 @@ class Chef(models.Model):
     receta_preferida = models.CharField(max_length=30)
     descripcion = RichTextField (blank=True, null=True)
     imagen_receta = models.ImageField(upload_to = 'fotos', blank=True, null=True)
-    # fecha_creacion = models.DateField(auto_now = True )
+    # fecha_creacion = models.DateField(null=True )
     # avatar = models.ImageField(upload_to='avatares', null=True, blank=True)
     
     
     def __str__(self):
-        return f"La receta preferida de {self.nombre} {self.apellido} es: {self.receta_preferida}"
+        return f"La receta preferida de {self.nombre} {self.apellido} es :  {self.receta_preferida}   "
     
     

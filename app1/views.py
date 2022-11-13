@@ -13,37 +13,37 @@ from django.contrib.auth.decorators import login_required # limita al usuario pa
 def index(request):
     return render(request, 'app1/index.html')
 
-def ver_chefs(request):
+# def ver_chefs(request):
     
-    nombre = request.GET.get('chefs', None)
-    apellido = request.GET.get('chefs', None)
+#     nombre = request.GET.get('chefs', None)
+#     apellido = request.GET.get('chefs', None)
     
-    if nombre:
-        chefs = Chef.objects.filter(nombre__icontains=nombre)        
+#     if nombre:
+#         chefs = Chef.objects.filter(nombre__icontains=nombre)        
                 
-    else:
-        chefs = Chef.objects.all()
+#     else:
+#         chefs = Chef.objects.all()
     
-    formulario = BusquedaChefFormulario()
+#     formulario = BusquedaChefFormulario()
           
-    return render(request, 'app1/ver_chefs.html', {'chefs': chefs, 'formulario': formulario})
+#     return render(request, 'app1/ver_chefs.html', {'chefs': chefs, 'formulario': formulario})
 
 class ListaChef(ListView):
     model = Chef
-    template_name = 'app1/ver_chefs.html'
+    template_name = 'app1/ver_chefs.html'    
     
-    # def get_queryset(self):
-    #     nombre = self.request.GET.get('nombre', '')
-    #     if nombre:
-    #         chefs = self.model.objects.filter(nombre__icontains=nombre)
-    #     else:
-    #         chefs = self.model.objects.all()
-    #     return chefs
+    def get_queryset(self):
+        nombre = self.request.GET.get('nombre','')
+        if nombre:
+            object_list = self.model.objects.filter(nombre__icontains=nombre)
+        else:
+            object_list = self.model.objects.all()
+        return object_list
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context["formulario"] = BusquedaChefFormulario()
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["formulario"] = BusquedaChefFormulario()
+        return context
     
     
     

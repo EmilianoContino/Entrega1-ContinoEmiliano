@@ -5,24 +5,25 @@
 {% endblock title_pagina %}
 
 {% block ver_chefs %}
+
+<button type="submit"><a class="btn dark" href={% url 'ver_chefs' %}>Atras</a></button>
+
+
 <p>
-    <li>Nombre: {{chef.nombre}} </li>
-    <li>Apellido: {{chef.apellido}} </li>
-    <li>Edad: {{chef.edad}} </li>
-    <li>Receta Preferida: {{chef.receta_preferida}} </li>
-    <li>Descripcion de la Receta: {{chef.descripcion |safe}} </li>
-    <li>Foto de la Receta: {{chef.imagen_receta |safe}} </li>
+    <li><strong>Nombre: </strong> {{chef.nombre}} </li>
+    <li><strong>Apellido: </strong> {{chef.apellido}} </li>
+    <li><strong>Edad: </strong> {{chef.edad}} </li>
+    <li><strong>Receta Preferida: </strong> {{chef.receta_preferida}} </li>
+    <li><strong>Descripcion de la Receta: </strong> {{chef.descripcion |safe}} </li>
+        
 
-  {% comment %} <li><p><strong>Fecha creación:</strong> {{chef.fecha_creacion}}</p></li> {% endcomment %}
+  {% if chef.imagen_receta %}
+  <img src={{chef.imagen_receta.url}} alt="" width = '400' > 
+  {% else %}
+  Imagen no subida.
+  {% endif %} 
     
-
-    {% if chef.imagen_receta %}
-    <img src={{chef.imagen_receta.url}} alt="" width = '500' > 
-    {% else %}
-    Imagen no subida.
-    {% endif %} 
-    
-    <li>imagen: {{chef.imagen_receta }} </li>
+  <li><strong>Publicó : </strong> {{request.user.username}} </li>
     
 </p>
 
