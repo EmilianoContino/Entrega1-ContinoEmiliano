@@ -8,8 +8,8 @@ class Chef(models.Model):
     receta_preferida = models.CharField(max_length=30)
     descripcion = RichTextField (blank=True, null=True)
     imagen_receta = models.ImageField(upload_to = 'fotos', blank=True, null=True)
-    # fecha_creacion = models.DateField(null=True )
-    # avatar = models.ImageField(upload_to='avatares', null=True, blank=True)
+    fecha_creacion = models.DateTimeField(auto_now_add=True, null=True)
+   
     
     
     def __str__(self):

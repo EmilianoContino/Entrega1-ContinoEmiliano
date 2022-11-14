@@ -9,7 +9,7 @@
 
 {% if object_list %}
     {% for chef in object_list %}
-                <a href={% url 'ver_chef' chef.id %}>{{chef}} </a> <br>
+                <a href={% url 'ver_chef' chef.id %}>{{chef}}</a> <br>
                 
                 <a href={% url 'editar_chef' chef.id %}>Editar</a>                    
                 <a href={% url 'eliminar_chef' chef.id %}>Eliminar</a>     

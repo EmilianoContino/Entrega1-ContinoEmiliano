@@ -10,10 +10,10 @@
 
 
 <p>
-    <li><strong>Nombre: </strong> {{chef.nombre}} </li>
-    <li><strong>Apellido: </strong> {{chef.apellido}} </li>
+    <li><strong>Nombre: </strong> {{chef.nombre.capitalize}} </li>
+    <li><strong>Apellido: </strong> {{chef.apellido.capitalize}} </li>
     <li><strong>Edad: </strong> {{chef.edad}} </li>
-    <li><strong>Receta Preferida: </strong> {{chef.receta_preferida}} </li>
+    <li><strong>Receta Preferida: </strong> {{chef.receta_preferida.capitalize}} </li>
     <li><strong>Descripcion de la Receta: </strong> {{chef.descripcion |safe}} </li>
         
 
@@ -23,8 +23,9 @@
   Imagen no subida.
   {% endif %} 
     
-  <li><strong>Publicó : </strong> {{request.user.username}} </li>
-    
+<p></p>
+  <strong> Lo publicó  {{chef.nombre.capitalize}} {{chef.apellido.capitalize}}, el {{chef.fecha_creacion}} . </strong> 
+
 </p>
 
 {% endblock ver_chefs %}
